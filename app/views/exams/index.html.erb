@@ -1,0 +1,8 @@
+<h1>套餐列表</h1>
+<ul>
+  <% @exam.each do |exam| %>
+    <li><%= link_to "#{exam.name}", exam_path(exam) %></li>
+  <% end %>
+</ul>
+<%= link_to '新增套餐', new_exam_path %>
+

@@ -1,0 +1,12 @@
+<h1>套餐名稱：<%= @exam.name %></h1>
+<p>檢查項目如下，按照項目分類列表 </p>
+<% @exam.category.each do |category| %>
+  <div>
+    <p> 項目分類：<%= category %></p>
+    <ul>
+      <% @exam.items.where(category: category).each do |item| %>
+        <li>項目：<%= item.name %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
