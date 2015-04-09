@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :get_category, only: [:new]
 
   def new
     @item = Item.new

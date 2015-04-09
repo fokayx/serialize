@@ -1,11 +1,11 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy, :item]
+  before_action :get_category, except: [:index]
   def index
     @exam = Exam.all
   end
   def new
     @exam = Exam.new
-    @category = ["body", "blood", "heart", "brian"]
     @items = Item.all
   end
   def create
@@ -38,7 +38,6 @@ class ExamsController < ApplicationController
   private
   def set_exam
     @exam = Exam.find(params[:id])
-    @category = ["body", "blood", "heart", "brian"]
   end
   def exam_params
     params.require(:exam).permit(:name, :category => [], :item_ids => [])

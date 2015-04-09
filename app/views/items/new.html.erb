@@ -3,6 +3,6 @@
   <%= f.text_field :name %>
   <br/>
   <%= f.label :category, '分類' %>
-  <%= f.text_field :category %>
+  <%= f.select :category, options_for_select(@category) %>
   <%= f.submit %>
 <% end %>
