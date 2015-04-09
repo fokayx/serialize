@@ -1,0 +1,16 @@
+<%= form_for @exam do |f| %>
+  <%= f.label :name, '名稱' %>
+  <%= @exam.name %>
+  <br />
+  <%= f.label :category, '分類' %>
+  <%= @exam.category %>
+  <br />
+  <% @exam.category.each do |c| %>
+    <%= c %>
+    <%= f.collection_check_boxes :item_ids, Item.where(category: "#{c}"), :id, :name %>
+    <br/>
+  <% end %>
+  <%= f.submit '新增檢查項目' %>
+<% end %>
+
+

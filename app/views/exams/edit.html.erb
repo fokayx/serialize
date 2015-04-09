@@ -1,0 +1,11 @@
+<%= form_for @exam do |f| %>
+  <%= f.label :name, '名稱' %>
+  <%= f.text_field :name %>
+  <br />
+  <%= f.label :category, '分類' %>
+  <%= @exam.category %>
+  <%= f.select :category, options_for_select(@category),{}, selected: "body", multiple: "true"  %>
+  <%= f.submit %>
+<% end %>
+
+

@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :exams
+  root 'exams#index'
+  resources :exams do
+    collection do
+      get '/:id/item', to: 'exams#item', as: 'add_item'
+      # 新增項目硬加一個item, to: 指定一個controller#method, as: 設定prefix
+    end
+  end
+  resources :items
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
