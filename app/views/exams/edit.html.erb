@@ -4,7 +4,10 @@
   <br />
   <%= f.label :category, '分類' %>
   <%= @exam.category %>
-  <%= f.select :category, options_for_select(@category),{}, selected: "body", multiple: "true"  %>
+  <% @category.each do |category| %>
+    <%= f.check_box :category, {multiple: "true"}, "#{category}", nil %>
+    <%= f.label :category, "#{category}" %>
+  <% end %>
   <%= f.submit %>
 <% end %>
 

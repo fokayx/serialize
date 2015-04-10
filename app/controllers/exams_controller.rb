@@ -1,6 +1,7 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy, :item]
   before_action :get_category, except: [:index]
+  #get_category 定義在ApplicationController，讓ExamsControlle, ItemsController都可以繼承使用
   def index
     @exam = Exam.all
   end

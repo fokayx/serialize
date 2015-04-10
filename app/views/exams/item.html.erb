@@ -6,6 +6,7 @@
   <%= @exam.category %>
   <br />
   <% @exam.category.each do |c| %>
+    <br/>
     <%= c %>
     <%= f.collection_check_boxes :item_ids, Item.where(category: "#{c}"), :id, :name %>
     <br/>
